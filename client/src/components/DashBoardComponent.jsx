@@ -1,9 +1,12 @@
 import React from "react";
 import { Avatar, Box, Typography, Paper, Chip } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
+import { useSelector } from "react-redux";
 
 const DashboardComponent = ({ user }) => {
   const userImage = "https://i.sstatic.net/frlIf.png"; // Use user's avatar or fallback to placeholder
+  const role = useSelector((store) => store.user.role);
+  const bgUrl = role === "Admin" ? 'https://images.shiksha.com/mediadata/images/1606461255php4NobaM.jpeg' : "https://static.vecteezy.com/system/resources/previews/013/545/880/non_2x/modern-colorful-wavy-line-background-design-wave-curve-abstract-background-for-business-landing-page-flyers-website-banner-and-presentation-free-vector.jpg"
 
   return (
     <Paper elevation={3} sx={{ padding: 2, borderRadius: 2, width: '100%' }}>
@@ -16,7 +19,7 @@ const DashboardComponent = ({ user }) => {
             objectFit: "cover",
             borderRadius: 2,
           }}
-          src="https://static.vecteezy.com/system/resources/previews/013/545/880/non_2x/modern-colorful-wavy-line-background-design-wave-curve-abstract-background-for-business-landing-page-flyers-website-banner-and-presentation-free-vector.jpg" // Replace with your actual banner image source
+          src={bgUrl} // Replace with your actual banner image source
           alt="Banner"
         />
         <Avatar
