@@ -88,7 +88,9 @@ const Layout = ({ children }) => {
               open={Boolean(profileAnchorEl)}
               onClose={handleProfileMenuClose}
             >
-              <MenuItem onClick={handleProfileMenuClose}>Profile</MenuItem>
+              <MenuItem onClick={() => {
+                navigate("/");
+              }}>Profile</MenuItem>
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
           </div>

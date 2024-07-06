@@ -25,12 +25,12 @@ const ChatbotCard = () => {
         p: 1,
       }}
     >
-      <Avatar
+      {/* <Avatar
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdZ9dExjxM5bzlQbdh_gLIt2cWMOzQmil8TA&s"
         alt="Chatbot Logo"
         sx={{ width: 48, height: 48, mr: 1 }}
-      />
-      <Typography variant="body1">Need Help? Chat with us!</Typography>
+      /> */}
+      <Typography sx={{fontWeight: "bold"}} variant="body1">Chat with Us for Help!</Typography>
       <Fab
         color="primary"
         aria-label="chat"
