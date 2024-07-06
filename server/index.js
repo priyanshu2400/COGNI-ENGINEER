@@ -13,8 +13,10 @@ const applyRoute = require('./routes/apply');
 const addBlogRoute = require('./routes/addBlog')
 const getBlogsRouter = require('./routes/getBlogs');
 
+const announcementsRoute = require('./routes/announcements');
+
 const app = express();
-const port = process.env.PORT || 3001;
+const port = 3001;
 
 require('dotenv').config();
 
@@ -31,7 +33,10 @@ app.use('/removeJob', removeJobRoute);
 app.use('/getJobs', getJobsRoute);
 app.use('/jobs/apply', applyRoute);
 app.use('/addBlog', addBlogRoute);
+
 app.use('/getBlogs', getBlogsRouter);
+
+app.use('/announcements', announcementsRoute);
 
 
 /* MONGOOSE SETUP */

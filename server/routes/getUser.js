@@ -6,7 +6,6 @@ const User = require('../models/user');
 // POST /login
 router.post('/', async (req, res) => {
     const { email } = req.body;
-    console.log('Get user: ', email);
 
     if (!email) {
         console.log('Missing email in request body');
