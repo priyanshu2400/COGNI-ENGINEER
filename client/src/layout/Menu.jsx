@@ -57,16 +57,16 @@ const Menu = ({ open, onClose }) => {
       <ListItemIcon><HelpIcon style={{ fontSize: 30 }}/></ListItemIcon>
       <ListItemText primaryTypographyProps={{ fontSize: '1.2rem', textDecoration: 'none', color: 'rgba(0, 0, 0, 0.60)' }} primary="Help" />
     </ListItem>)}
-    { role==="Admin" && (<ListItem component={Link} to="/addjob" onClick={onClose}>
-      {/* <ListItemIcon><WorkIcon style={{ fontSize: 30 }}/></ListItemIcon> */}
-      <ListItemIcon><AddCircleOutlineIcon style={{ fontSize: 30 }}/></ListItemIcon>
-      <ListItemText primaryTypographyProps={{ fontSize: '1.2rem', textDecoration: 'none', color: 'rgba(0, 0, 0, 0.60)' }} primary="Add Job" />
-    </ListItem>)}
     <ListItem component={Link} to="/announcements" onClick={onClose}>
-      {/* <ListItemIcon><WorkIcon style={{ fontSize: 30 }}/></ListItemIcon> */}
       <ListItemIcon><AnnouncementOutlinedIcon style={{ fontSize: 30 }}/></ListItemIcon>
       <ListItemText primaryTypographyProps={{ fontSize: '1.2rem', textDecoration: 'none', color: 'rgba(0, 0, 0, 0.60)' }} primary="Announcements" />
     </ListItem>
+    { role==="Admin" && (
+    <ListItem component={Link} to="/addjob" onClick={onClose}>
+      <ListItemIcon><AddCircleOutlineIcon style={{ fontSize: 30 }}/></ListItemIcon>
+      <ListItemText primaryTypographyProps={{ fontSize: '1.2rem', textDecoration: 'none', color: 'rgba(0, 0, 0, 0.60)' }} primary="Add Job" />
+    </ListItem>)}
+
     <ListItem component={Link} to="/login" onClick={handleLogout}>
       <ListItemIcon><LogoutIcon style={{ fontSize: 30 }}/></ListItemIcon>
       <ListItemText primaryTypographyProps={{ fontSize: '1.2rem', textDecoration: 'none', color: 'rgba(0, 0, 0, 0.60)' }} primary="Logout" />
