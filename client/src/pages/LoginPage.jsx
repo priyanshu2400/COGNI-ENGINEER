@@ -25,7 +25,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const backendServer = process.env.REACT_APP_BACKEND_SERVER;
-
+  console.log(backendServer);
   const loginUser = createAsyncThunk(
     'user/loginUser',
     async (loginData, { dispatch }) => {
@@ -38,7 +38,10 @@ const LoginPage = () => {
       });
   
       if (!response.ok) {
-        throw new Error('Failed to sign in');
+        const errorData = await response.json();
+        console.log(errorData.message)
+                // return rejectWithValue(errorData.message);
+        throw new Error(errorData.message);
       }
   
       const data = await response.json();
@@ -49,6 +52,8 @@ const LoginPage = () => {
       return data;
     }
   );
+
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();

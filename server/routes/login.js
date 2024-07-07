@@ -69,7 +69,7 @@ router.post('/', async (req, res) => {
 
         if (!user) {
             console.log('Invalid credentials for:', email);
-            return res.status(401).json({ message: 'Invalid credentials' });
+            return res.status(401).json({ message: 'User not found' });
         }
 
         // Compare the hashed password with the provided password
@@ -77,7 +77,7 @@ router.post('/', async (req, res) => {
         
         if (!isMatch) {
             console.log('Invalid credentials for:', email);
-            return res.status(401).json({ message: 'Invalid credentials' });
+            return res.status(401).json({ message: 'Password is Incorrect' });
         }
 
         console.log('Login successful for:', email);

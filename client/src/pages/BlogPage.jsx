@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../layout/Layout";
 import Post from "../components/Post";
-import { Box, Button, Card, CardContent, Fab, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Fab,
+  Typography,
+} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import { useNavigate } from "react-router-dom";
 
 const BlogPage = () => {
@@ -51,7 +59,12 @@ const BlogPage = () => {
 
   return (
     <Layout>
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
+      <Box sx={{ padding: 2, textAlign: "center" }}>
+        <Typography variant="h4" sx={{ marginBottom: 2 }}>
+          Blog Page
+        </Typography>
+      </Box>
+      <Box sx={{ display: "flex", flexDirection: "row", padding: 2 }}>
         {/* Company Cards Section */}
         <Card
           sx={{
@@ -62,16 +75,21 @@ const BlogPage = () => {
             marginLeft: 5,
             marginRight: 5,
             height: "fit-content",
-            backgroundColor: "WHITE"
+            backgroundColor: "white",
+            boxShadow: 3,
           }}
         >
           <CardContent>
-            <Typography variant="h6" gutterBottom sx={{
-              margin: 3,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}> 
+            <Typography
+              variant="h6"
+              gutterBottom
+              sx={{
+                margin: 3,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               Companies
             </Typography>
             {uniqueCompanies.map((company) => (
@@ -84,7 +102,15 @@ const BlogPage = () => {
                 }
                 onClick={() => handleCompanyClick(company)}
                 fullWidth
-                sx={{ marginBottom: 1 }}
+                sx={{
+                  marginBottom: 1,
+                  textTransform: "capitalize",
+                  borderColor: "#1976d2",
+                  '&:hover': {
+                    backgroundColor: "#1976d2",
+                    color: "white",
+                  }
+                }}
               >
                 {company}
               </Button>
@@ -100,13 +126,12 @@ const BlogPage = () => {
             width: "100%",
             padding: 3,
             margin: 1,
-            backgroundColor: "#fff",
+            backgroundColor: "#f4f6f8",
             borderRadius: 1,
-            
+            boxShadow: 3,
           }}
         >
           {filteredBlogs.map((blog) => (
-            
             <Post
               key={blog._id}
               author={blog.name}
@@ -114,7 +139,7 @@ const BlogPage = () => {
               content={blog.text}
               createdAt={blog.createdAt} // Pass createdAt to Post component
               email={blog.email} // Pass email to Post component
-              likes={0} // Placeholder for likes count
+              likes={<ThumbUpIcon />}
             />
           ))}
           <Box sx={{ position: "fixed", bottom: "16px", right: "16px" }}>

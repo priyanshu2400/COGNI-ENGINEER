@@ -63,9 +63,6 @@ const Post = ({ author, company, content, createdAt, email, likes }) => {
           {content}
         </Typography>
         <Box sx={{ marginTop: 1 }}>
-          <Typography variant="body2" color="textSecondary">
-            Likes: {likes}
-          </Typography>
         </Box>
       </CardContent>
     </Card>
